@@ -78,14 +78,6 @@ int ob_devant(){
     return 1;
 }
 
-int Lecture_Infra(){
-
-    ADC_init();
-    ADC_Demarrer_conversion(0x00);
-    return ADC_Lire_resultat();
-
-}
-
 #pragma vector = PORT1_VECTOR
 __interrupt void Port_0(void)
 {

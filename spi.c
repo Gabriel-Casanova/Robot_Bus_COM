@@ -86,32 +86,6 @@
 #include <msp430.h>
 
 unsigned char MST_Data, SLV_Data;
-
-
-void InitUART(void)
-{
-    P1SEL |= (BIT1 | BIT2);                 // P1.1 = RXD, P1.2=TXD
-    P1SEL2 |= (BIT1 | BIT2);                // P1.1 = RXD, P1.2=TXD
-    UCA0CTL1 = UCSWRST;
-    UCA0CTL1 |= UCSSEL_3;                   // SMCLK
-
-    UCA0CTL0 &= ~(UCPEN | UCMSB | UCMSB | UCDORM);
-    UCA0CTL0 &= ~(UC7BIT | UCSPB  | UCMODE_3 | UCSYNC);
-    UCA0CTL1 &= ~UCSWRST;                   // **Initialize USCI state machine**
-
-    UCA0BR0 = 104;                          // 1MHz, 9600
-    UCA0BR1 = 0;                            // 1MHz, 9600
-    UCA0MCTL = 10;
-
-    IE2 |= UCA0RXIE;                        // Enable USCI_A0 RX interrupt
-}
-
-void TXdata( unsigned char c )
-{
-    while (!(IFG2&UCA0TXIFG));  // USCI_A0 TX buffer ready?
-    UCA0TXBUF = c;              // TX -> RXed character
-}
-
 /*
 int main(void)
 {
@@ -152,7 +126,7 @@ int main(void)
 */
 
 
-
+/*
 // Test for valid RX and TX character
 #pragma vector=USCIAB0RX_VECTOR
 __interrupt void USCIA0RX_ISR(void)
@@ -167,7 +141,7 @@ __interrupt void USCIA0RX_ISR(void)
     P1OUT &= ~BIT0;                         // If incorrect, clear LED
 
   /*MST_Data++;                               // Increment master value
-  SLV_Data++;                               // Increment expected slave value*/
+  SLV_Data++;                               // Increment expected slave value
   UCA0TXBUF = MST_Data;                     // Send next value
 
   __delay_cycles(50);                     // Add time between transmissions to
@@ -231,7 +205,7 @@ __interrupt void USCI0RX_ISR(void)
     }
 
 }
-
+*/
 
 
 
