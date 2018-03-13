@@ -28,31 +28,3 @@ int main(void)
 
 	}
 }
-	/*if (sens==1 && TACCR1<2000){
-	    TACCR1 = TACCR1+100;
-	            if (TACCR1==2000){
-	                sens=0;
-	            }
-	}
-	else if (sens==0 && TACCR1==2000){
-	    TACCR1 = TACCR1-100;
-	            if (TACCR1==500){
-	                sens=1;
-	            }
-	}*/
-	/*while(1)
-	{
-        if (sens==1 && TACCR1<2000){
-            do {
-                TACCR1 = TACCR1+100;
-            } while (TACCR1 != 2000);
-            sens = 0;
-        }
-        else if (sens==0 && TACCR1==2000){
-            do {
-                TACCR1=TACCR1-100;
-            } while (TACCR1 != 500);
-            sens = 1;
-        }*/
-
-

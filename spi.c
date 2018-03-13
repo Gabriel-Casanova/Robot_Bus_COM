@@ -112,6 +112,7 @@ void TXdata( unsigned char c )
     UCA0TXBUF = c;              // TX -> RXed character
 }
 
+/*
 int main(void)
 {
   volatile unsigned int i;
@@ -148,7 +149,7 @@ int main(void)
   TXdata('a');
   while(1);
 }
-
+*/
 
 
 

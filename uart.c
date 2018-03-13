@@ -41,6 +41,7 @@ void TXdata( unsigned char c )
 unsigned char a;
 unsigned char commande;
 
+/*
 void main(void)
 {
     WDTCTL = WDTPW + WDTHOLD;   // Stop WDT
@@ -87,8 +88,8 @@ __interrupt void USCI0RX_ISR(void)
         {
             printf ("")
         }
-    }*/
-}
+    }
+}*/
 
 
 
