@@ -59,7 +59,7 @@ void main(void)
 
     TXdata('a');
     while(1);
-}
+}*/
 
 
 // Echo back RXed character, confirm TX buffer is ready first
@@ -74,22 +74,34 @@ __interrupt void USCI0RX_ISR(void)
  * Tentative de créer un switch afin de faire un menu en fonction de la lettre
  */
 
-    /*if (UCB0RXBUF == a)
-    {
-        P1OUT |= BIT6;
-    }
-    else
-    {
-        P1OUT &=~ BIT6;
-    }
+
     switch (c)
     {
-    case c = 'h'
+    case 1 :
+        if (c == 'h')
         {
-            printf ("")
+            printf("La lettre est h");
         }
+        break;
+
+    case 2 :
+        if (c == 'a')
+           {
+               P1OUT |= BIT6;
+           }
+        break;
+    case 3 :
+        if (c == 'b')
+        {
+            P1OUT &=~ BIT6;
+        }
+        break;
+    default :
+    {
+        printf("La lettre n'est pas comprise dans le programme");
     }
-}*/
+    }
+}
 
 
 
