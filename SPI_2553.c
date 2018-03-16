@@ -257,6 +257,8 @@ void Send_char_SPI(unsigned char carac)
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
  * main.c
  */
+
+/*
 void main( void )
 {
     init_BOARD();
@@ -277,7 +279,7 @@ void main( void )
             __bis_SR_register(LPM4_bits | GIE); // general interrupts enable & Low Power Mode
         }
     }
-}
+}*/
 
 // --------------------------- R O U T I N E S   D ' I N T E R R U P T I O N S
 

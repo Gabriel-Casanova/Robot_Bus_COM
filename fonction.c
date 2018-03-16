@@ -82,7 +82,7 @@ int ob_devant(){
 __interrupt void Port_0(void)
 {
     ADC_Demarrer_conversion(4);
-
+    stop();
 }
 
 
