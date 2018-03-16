@@ -11,6 +11,7 @@ GEN_CMDS__FLAG :=
 
 ORDERED_OBJS += \
 "./ADC.obj" \
+"./SPI_2553.obj" \
 "./fonction.obj" \
 "./main.obj" \
 "./servomoteur.obj" \
@@ -159,8 +160,8 @@ Robot_OC.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "ADC.obj" "fonction.obj" "main.obj" "servomoteur.obj" "spi.obj" "uart.obj" 
-	-$(RM) "ADC.d" "fonction.d" "main.d" "servomoteur.d" "spi.d" "uart.d" 
+	-$(RM) "ADC.obj" "SPI_2553.obj" "fonction.obj" "main.obj" "servomoteur.obj" "spi.obj" "uart.obj" 
+	-$(RM) "ADC.d" "SPI_2553.d" "fonction.d" "main.d" "servomoteur.d" "spi.d" "uart.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 
