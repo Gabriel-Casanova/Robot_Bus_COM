@@ -4,7 +4,7 @@
 #include <ADC.h>
 #include <SPI_2553.h>
 #include <string.h>
-
+#include <SPI_2231.h>
 
 
 
@@ -14,12 +14,33 @@
 
 void main( void )
 {
+    WDTCTL = WDTPW | WDTHOLD;   /* stop watchdog timer*/
 
+    /*          Servomoteur     */
+
+    int sens=1 ;
+    int rc=0;
     init_BOARD();
     init_UART();
     init_USCI();
+	}
 
     envoi_msg_UART("\rReady !\r\n"); // user prompt
+          /* SPI   */
+	void init_SPI();
+    _enable_interrupt();
+    if(CALBC1_1MHZ==0xFF || CALDCO_1MHZ==0xFF)
+       {
+           __bis_SR_register(LPM4_bits);
+       }
+       else
+       {
+           // Factory Set.
+           DCOCTL = 0;
+           BCSCTL1 = CALBC1_1MHZ;
+           DCOCTL = (0 | CALDCO_1MHZ);
+       }
+
 
     while(1)
     {
@@ -34,3 +55,7 @@ void main( void )
         }
     }
 }
+
+
+
+
