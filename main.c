@@ -21,9 +21,22 @@ void main( void )
     int sens=1 ;
     int rc=0;
     init_BOARD();
-    init_UART();
     init_USCI();
-	}
+
+    init_pwm_moteur();
+        rc=TACCR1; /*On affecte une variable a TACCR1*/
+        while (1){
+            __delay_cycles(400000); /*Delay suffisant pour que le PWM soit capté par le moteur*/
+            if (sens==1){ /*On test si le servomoteur tourne dans le sens horraire ou non*/
+                rc+=100;} /*moteur tourne sens horraire -> on incremente rc*/
+            else {
+                rc-=100;} /* sinon on décrémente */
+            if (rc > 2000){ /* on change le sens une fois arrivé en buté du moteur */
+                sens = 0;}
+            else if (rc<500){ /* on change le sens une fois arrivé en buté de l'autre côté du moteur */
+                sens = 1;}
+            TACCR1 = rc; /* On réaffecte la valeur a la variable*/
+    }
 
     envoi_msg_UART("\rReady !\r\n"); // user prompt
           /* SPI   */
@@ -38,6 +51,7 @@ void main( void )
            // Factory Set.
            DCOCTL = 0;
            BCSCTL1 = CALBC1_1MHZ;
+
            DCOCTL = (0 | CALDCO_1MHZ);
        }
 
